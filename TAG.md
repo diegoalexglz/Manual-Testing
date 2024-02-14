@@ -69,7 +69,7 @@ Software Testing Life Cicle (STLC)
    - Test strategy
    - Efforts and costs
    - Limitations
-3. Test design (test cases)
+3. Test design (test cases, scripts)
 4. Env setup (programs)
 5. Test execution
 6. Closure (pass and fail reports)
@@ -120,6 +120,8 @@ More isolation & Faster ($)	<----------------------->	More integration & Slower 
 
 Nosotros **NO** hacemos **unit test**, lo hacen los developers.
 
+El UAT lo hacen los clientes y el BA.
+
 En todos los macro-niveles se puede decidir entre hacer testing manual y automatizado, pero se recomienda:
 
 - Service -> Automatizado
@@ -142,22 +144,50 @@ En todos los macro-niveles se puede decidir entre hacer testing manual y automat
 
 ### Functional
 
-- Exploratory
+- Exploratory                                                         -> UI, UAT
 
-- UI (also known as System) (✔)          -> the 'normal ones', who represent 80% of all tests
+- UI (✔)                                                                  -> UI, UAT
 
-- API (✔)
+- API (✔)                                                                -> Service
 
-- DB (✔)
+- DB (✔)                                                                 -> Service
 
 - Strategic:
 
-  - End-To-End **E2E** (✔)
+  - End-To-End **E2E** (✔)                                     -> It is DB, API & UI
   - Regression (✔)
-    - Smoke (Unit testing, made by Devs)
-      - Sanity (Unit testing, made by Devs)
-  - Re-Testing (para Bugs) 
+    - Smoke (✖)
+      - Sanity (✖)
+  - Re-Testing (it is done after Devs debug something) 
 
   
 
 *✔ Indicates that either manual or automated approach can be used.*
+
+*✖ Indicates Unit testing, made only by Devs*
+
+*UI Testing is also known as System testing, and represents roughly 80% of all QA's tests*
+
+
+
+# TAG 4 - SCRUM
+
+### Process
+
+1. Initiation
+2. Requirements definition
+3. Design
+4. Development
+5. Test
+6. Release
+7. Maintenance
+
+
+
+​												  Daily Stand Up
+
+USER STORIES	BACKLOG	PLANNING MEETING	SPRINT	DEPLOYMENT
+
+
+
+![image-20240213190439061](C:\Users\Diego\AppData\Roaming\Typora\typora-user-images\image-20240213190439061.png)
