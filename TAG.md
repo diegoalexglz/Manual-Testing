@@ -244,29 +244,61 @@ A final deploy is done to Prod, where product is ready to be used by final users
 
 ### General types
 
-- (A) **Input controls**: allow users to enter info into the system.
-- (B) **Navigational components**: help users move around a product or website.
-- (C) **Informational components**: share info with users.
-- (D) **Containers**: hold related content together.
+- **Input controls**: allow users to enter info into the system.
+- **Navigational components**: help users move around a product or website.
+- **Informational components**: share info with users.
+- **Containers**: hold related content together.
 
 ### Elements
 
-- **Accordion (B)**
+<table style="width: 100%; text-align: center; vertical-align: middle; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th width="30%">Type</th>
+            <th width="70%">Element</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Input</td>
+            <td>Button<br>
+                Checkbox<br>
+                Radio Buttons<br>
+                Toogle<br>
+                Dropdown<br>
+                Search bar<br>
+                Picker<br>
+                Slider<br>
+                Stepper
+            </td>
+        </tr>
+        <tr>
+            <td>Navigational</td>
+            <td>Accordion<br>
+                Pagination<br>
+                Bento menu<br>
+                Breadcrumb<br>
+                Tab<br>
+                Sidebar<br>
+                Carousel
+            </td>
+        </tr>
+        <tr>
+            <td>Informational</td>
+            <td>Comment<br>
+                Loader<br>
+                Tag<br>
+                Tooltip
+            </td>
+        </tr>
+        <tr>
+            <td>Containers</td>
+            <td>Card<br>
+                Form<br>
+                Moral
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-Let users expand and collapse sections of content.
-
-<img src="images/im_04.png" width="500" style="float: left;">
-
-- **Bento menu (B)**
-
-Menu with grid items.
-
-<img src="images/im_05.png" width="400" style="float: left;">
-
-<img src="images/im_06.png" width="400" style="float: left;">
-
-- **Breadcrumb (B)**
-
-These little trails of links help users figure out where they are within a website
-
-S
+s
