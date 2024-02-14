@@ -51,8 +51,6 @@ Software Development Life Cicle (SDLC)
 
 Los mov. entre fases se conocen como: *Deploy*
 
-<img src="images/im_09.png" width="200" style="float: left;">
-
 
 
 ### Ciclo de vida de pruebas de SW
@@ -96,15 +94,7 @@ Software Testing Life Cicle (STLC)
 
 ### Levels (functional)
 
-More isolation & Faster ($)	<----------------------->	More integration & Slower ($$$)
-
-
-
-​	**Unit Test		Service/Integration		UI			UAT**
-
-​						      (Backend)		    (Frontend)
-
-​						or DB/API testing
+<img src="images/im_01.png" width="700" style="float: left;">
 
 
 
@@ -184,10 +174,99 @@ En todos los macro-niveles se puede decidir entre hacer testing manual y automat
 
 
 
-​												  Daily Stand Up
-
-USER STORIES	BACKLOG	PLANNING MEETING	SPRINT	DEPLOYMENT
+<img src="images/im_02.png" width="700" style="float: left;">
 
 
 
-![image-20240213190439061](C:\Users\Diego\AppData\Roaming\Typora\typora-user-images\image-20240213190439061.png)
+*Daily Scrum or Daily stand up is a 15 minutes meeting.*
+
+*PBI: Product Backlog Item*
+
+*La sprint (o sprint backlog) dura de 2 a 4 semanas.*
+
+*Durante un sprint backlog se trabajan múltiples PBIs, cada uno de ellos, a su vez, con múltiples tareas.*
+
+
+
+### Roles
+
+- Product Owner (PO)
+  - Decides what to build
+  - Collects requirements
+  - Defines user stories and MVP
+  - Sets acceptance criteria
+  - Prioritizes Backlog items
+  - Validates releases in sprint review
+- Scrum Master (SM)
+  - Implements scrum
+  - Solves obstacles in the team
+- Dev Team (UX, QA & Devs)
+
+ 
+
+### Ceremonias
+
+- Sprint planning -> a measure of the needed efforts for a task to be done (stories/fibonacci points)
+- Daily Scrum -> what are we gonna do today, do any have any obstacle?
+- Sprint Review -> product is shown to the client
+- Sprint Retrospective -> client liked/ disliked something; good things stay, bad ones don't, and new ideas will be implemented
+- Sprint Grooming or Refinement -> trash things that didn't work out.
+
+
+
+# TAG 5.1 - AMBIENTES DE TRABAJO
+
+An environment is like a copy of the SUT.
+
+Dev teams have their own envs (for backend and frontend) and QA teams have their own envs aswell (for Unit, API, DB and UI).
+
+This allows them to work on different SW versions without conflicts.
+
+
+
+*SUT: System under test*
+
+
+
+<img src="images/im_03.png" width="700" style="float: left;">
+
+
+
+Once tests have been done (QA Envs), a **deploy** is done to UAT env, for client validation.
+
+After client UAT env, there's another deploy to Stage Env, which is a 'pre' and usually contains alpha, beta versions.
+
+A final deploy is done to Prod, where product is ready to be used by final users.
+
+
+
+# TAG 5.2 - ELEMENTOS UI
+
+### General types
+
+- (A) **Input controls**: allow users to enter info into the system.
+- (B) **Navigational components**: help users move around a product or website.
+- (C) **Informational components**: share info with users.
+- (D) **Containers**: hold related content together.
+
+### Elements
+
+- **Accordion (B)**
+
+Let users expand and collapse sections of content.
+
+<img src="images/im_04.png" width="500" style="float: left;">
+
+- **Bento menu (B)**
+
+Menu with grid items.
+
+<img src="images/im_05.png" width="400" style="float: left;">
+
+<img src="images/im_06.png" width="400" style="float: left;">
+
+- **Breadcrumb (B)**
+
+These little trails of links help users figure out where they are within a website
+
+S
