@@ -301,4 +301,205 @@ A final deploy is done to Prod, where product is ready to be used by final users
     </tbody>
 </table>
 
-s
+
+
+# TAG 6.1 - GESTOR DE INCIDENCIAS: JIRA
+
+- Creación de requerimientos (features)
+- Creación y seguimiento de incidencias (issues)
+- Gestión de códigos (GITs, DEVOPS)
+- Gestión de pruebas (test management: Xray - Testing board)
+- Gestión de tareas (task management)
+- Gestión de reportes
+
+### Issues
+
+En Jira, las partes de un trabajo se denominan “incidencias”. Hay diferentes tipos de incidencias, como:
+
+- las historias de usuario,
+- los errores,
+- y las tareas.
+
+Así pues, la incidencia puede ser una tarea del proyecto, un formulario de solicitud o cualquier otra unidad de trabajo relevante del proyecto.
+
+
+
+### Initiatives (INIT)
+
+An initiative is the origin of a feature and, in turn, of epics. They aren't shown in Jira.
+
+Initiative -> Epic -> Stories
+
+
+
+### Features
+
+It's a functionality of the SUT.
+
+It can be either an Epic or a user Story.
+
+Examples:
+
+- Login page (epic)
+- Button (story)
+
+
+
+### Types of issues
+
+Epic -> Stories -> Tasks
+
+
+
+> EPIC
+
+Una funcionalidad completa.
+
+A big user story that needs to be broken down (a collection of related error, stories and tasks).
+
+An epic can also be seen as a new feature, which comes with multiple tasks in order to be developed.
+
+> USER STORIES (US)
+
+Es una feature específica, que puede depender de otras o ser parte complementaria de una feature más grande (epic).
+
+Son creadas por el BA/PO, que son los analistas de software, y las ponen en el backlog.
+
+
+
+### Xray issues
+
+> TEST SET
+
+Colección de casos de prueba agrupados para un propósito específico, pero que se pueden ejecutar en diferentes entornos.
+
+> TEST
+
+Representa un **caso de prueba**. Contiene los pasos específicos (manuales o automatizados) para validar una funcionalidad o comportamiento del software.
+
+> TEST EXECUTION
+
+Registro de los resultados del test (pasó, falló, bloqueado) e info de cuándo se ejecutó, quién lo ejecutó, y qué entorno se utilizó.
+
+> BUG
+
+Falla en el software que causa un resultado inesperado (errores en el código, errores de configuración o problemas con el entorno).
+
+> PRECONDITION (not exactly an issue, but a tool)
+
+Condición que debe cumplirse antes de que se pueda ejecutar un caso de prueba (requisitos de hardware o software, configuraciones específicas o datos de prueba).
+
+> TEST PLAN (not exactly an issue, but a tool)
+
+Documento que describe cómo se probará el software (alcance y tipos de las pruebas que se realizarán, recursos necesarios y cronograma).
+
+
+
+### Priority levels
+
+1. **Highest**: will block progress
+2. **High**: could block progress
+3. **Medium**: potential to affect progress
+4. **Low**: easily worked around.
+5. **Lowest**: no impact on progress
+
+
+
+### Statuses in Kanban Board
+
+> COMMON WORKFLOW (KANBAN)
+
+1. To do
+
+2. In progress
+
+3. Done
+
+
+> MORE STATUSES
+
+- **Open**:  ready for the assignee to start work on it.
+- **In progress**
+- **Reopened**: issue was once resolved, but the resolution was deemed incorrect.
+- **Resolved**: awaiting verification. From here, it can be reopened or closed.
+- **Closed**: resolution was correct.
+- **Building**: waiting for the code to be built before moving to the next status.
+
+
+
+### Configure an issue
+
+> CREATE A NEW FIELD
+
+Issues 'template' can have more info, for example:
+
+- Number
+- Time stamp
+- Labels
+- Due date/ Start date
+
+
+
+### The reporter
+
+The reporter is usually the person who created the issue.
+
+
+
+### Manage workflows
+
+> #### TRANSITIONS
+
+Transitions connect statuses.
+
+Like, from 'Ready for pickup' to 'Send for delivery' and then to 'On the way' statuses.
+
+> RULES
+
+A rule can be set to:
+
+- **Assign an issue to someone at different stages of the process**
+
+  To ensure that the right people address the right issues at the right time.
+
+- **Restrictions based on an specific value**
+
+  To verify that an issue's field meets an specific value condition (a number, a date, a content) before allowing someone to move the issue to another status.
+
+- **Restrictions based on statuses**
+
+  To ensure that issues go through one or more required stages.
+
+- **Restrictions based on users permissions**
+
+  To ensure only the right people can move an issue at a particular point in your team’s process.
+
+
+
+### Boards
+
+You're asked to select a template when creating a project, which, in turn, will define the board type.
+
+- Kanban
+- Scrum
+- Bug tracking
+
+
+
+### Filters
+
+They are like mini SQL queries, to select issues.
+
+
+
+
+
+
+
+
+
+
+
+
+
+![image-20240214090903639](C:\Users\Diego\AppData\Roaming\Typora\typora-user-images\image-20240214090903639.png)
