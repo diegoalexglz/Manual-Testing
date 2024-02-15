@@ -634,26 +634,19 @@ D
 
 *PDP: Product detail page*
 
-![image-20240215113235902](C:\Users\Diego\AppData\Roaming\Typora\typora-user-images\image-20240215113235902.png)
 
 
+==key==
 
 ```gherkin
 ACCEPTANCE CRITERIA
 #ESCENARIO 1 (HAPPY PATH)
 Scenario: Usuario añade un producto simple del PLP al Shopping-Cart exitosamente
-GIVEN el usuario se sitúe en el PLP
+GIVEN: el usuario se sitúe en el PLP
 When hace click sobre el botón "Add To Cart" ubicado en la parte inferior de las Cartas Simples de la PLP
-Then encima de la imagen del Producto Simple elegido, aparece un mensaje de loading por unos segundos: "ADDING TO
-CART..."
+Then encima de la imagen del Producto Simple elegido, aparece un mensaje de loading por unos segundos: "ADDING TO CART..."
 And luego en su lugar, aparece otro mensaje por unos segundos de que el producto ha sido añadido exitosamente:
 "SUCCESSFULLY ADDED TO YOUR SHOPPING CART"
-And encima del Listado de Productos aparece un ícono de shopping-cart y un mensaje de tipo banner indicando: "View
-Cart Product successfully added to your cart."
-And dentro del mensaje, se visualiza un enlace en la palabra "View Cart
+And encima del Listado de Productos aparece un ícono de shopping-cart y un mensaje de tipo banner indicando: "View Cart Product successfully added to your cart."
+And dentro del mensaje, se visualiza un enlace en la palabra "View Cart"
 ```
-
-> [!NOTE]
->
-> s
-
