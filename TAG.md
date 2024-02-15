@@ -737,11 +737,14 @@ They are like mini SQL queries, to select issues.
 
    EXPECTED RESULT: Se puede tomar del 'then', escribiéndo '<u>should</u>'. Por ejemplo: 'debería aparecer...'
 
-   > [!TIP]
-   >
-   > Una acción puede tener múltiples 'Expected results', en forma de viñetas. Esto se puede identificar cuando hay condiciones 'And' en la US.
+> [!TIP]
+>
+> Una acción puede tener múltiples 'Expected results', en forma de viñetas. Esto se puede identificar cuando hay condiciones 'And' en la US.
 
 9. s
+
+
+
 
 
 
@@ -814,4 +817,6 @@ Scenario Outline: eating
     |    12 |   5 |    7 |
     |    20 |   5 |   15 |
 ```
+
+
 
