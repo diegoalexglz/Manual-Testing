@@ -1,3 +1,97 @@
+# 00 - Examples
+
+### US
+
+<img src="images/im_04.png" width="650" style="float: left;">
+
+### Guerkin's keywords
+
+> Use of `*` instead of `And` (or any other step keyword).
+
+This:
+
+```gherkin
+Feature: .
+Scenario: All done
+  Given I am out shopping
+  And I have eggs
+  And I have milk
+  And I have butter
+  When I check my list
+  Then I don't need anything
+```
+
+Could be expressed as:
+
+```gherkin
+Feature: .
+Scenario: All done
+  Given I am out shopping
+  * I have eggs
+  * I have milk
+  * I have butter
+  When I check my list
+  Then I don't need anything
+```
+
+
+
+> Use of datatables
+
+Data Tables are handy for passing a list of values to a step definition:
+
+```gherkin
+Feature: .
+Scenario: .
+ Given the following users exist:
+  | name   | email              | twitter         |
+  | Aslak  | aslak@cucumber.io  | @aslak_hellesoy |
+  | Julien | julien@cucumber.io | @jbpros         |
+  | Matt   | matt@cucumber.io   | @mattwynne      |
+```
+
+
+
+> Use of `Scenario outline`
+
+Copying and pasting scenarios to use different values quickly becomes tedious and repetitive, for example:
+
+```gherkin
+Feature: .
+Scenario: eat 5 out of 12
+  Given there are 12 cucumbers
+  When I eat 5 cucumbers
+  Then I should have 7 cucumbers
+
+Scenario: eat 5 out of 20
+  Given there are 20 cucumbers
+  When I eat 5 cucumbers
+  Then I should have 15 cucumbers
+```
+
+We can collapse these two similar scenarios into a `Scenario Outline`, through the use of a template with `< >` delimited parameters
+
+```gherkin
+Feature: .
+Scenario Outline: eating
+  Given there are <start> cucumbers
+  When I eat <eat> cucumbers
+  Then I should have <left> cucumbers
+
+  Examples:
+    | start | eat | left |
+    |    12 |   5 |    7 |
+    |    20 |   5 |   15 |
+```
+
+> [!NOTE]
+>
+> The `Scenario Outline` is run *once for each row* in the `Examples` section beneath it.
+
+
+
+
+
 # TAG 1 - INTRO
 
 ### Habilidades técnicas
@@ -74,7 +168,9 @@ Software Testing Life Cicle (STLC)
 
 
 
-*RTM: document that maps and traces user requirement with test cases.*
+> [!NOTE]
+>
+> *RTM: document that maps and traces user requirement with test cases.*
 
 
 
@@ -98,13 +194,15 @@ Software Testing Life Cicle (STLC)
 
 
 
-*UI: User Interface (se le presenta al usuario)* 
-
-*UAT: User Acceptance Testing*
-
-*API: Application Programming Interface*
-
-*Un bus o una API puede verse como un medio para traernos información desde el backend hasta el frontend. Es decir, mueven información desde  'bases de datos' de nuestro SW.*
+> [!NOTE]
+>
+> *UI: User Interface (se le presenta al usuario)* 
+>
+> *UAT: User Acceptance Testing*
+>
+> *API: Application Programming Interface*
+>
+> *Un bus o una API puede verse como un medio para traernos información desde el backend hasta el frontend. Es decir, mueven información desde  'bases de datos' de nuestro SW.*
 
 
 
@@ -112,12 +210,15 @@ Nosotros **NO** hacemos **unit test**, lo hacen los developers.
 
 El UAT lo hacen los clientes y el BA.
 
-En todos los macro-niveles se puede decidir entre hacer testing manual y automatizado, pero se recomienda:
-
-- Service -> Automatizado
-- UI -> Manual y automatizado
 
 
+> [!TIP]
+>
+> En todos los macro-niveles se puede decidir entre hacer testing manual y automatizado, pero se recomienda:
+>
+> - Service -> Automatizado
+> - UI -> Manual y automatizado
+>
 
 
 
@@ -152,11 +253,13 @@ En todos los macro-niveles se puede decidir entre hacer testing manual y automat
 
   
 
-*✔ Indicates that either manual or automated approach can be used.*
-
-*✖ Indicates Unit testing, made only by Devs*
-
-*UI Testing is also known as System testing, and represents roughly 80% of all QA's tests*
+> [!NOTE]
+>
+> *✔ Indicates that either manual or automated approach can be used.*
+>
+> *✖ Indicates Unit testing, made only by Devs*
+>
+> *UI Testing is also known as System testing, and represents roughly 80% of all QA's tests*
 
 
 
@@ -178,13 +281,15 @@ En todos los macro-niveles se puede decidir entre hacer testing manual y automat
 
 
 
-*Daily Scrum or Daily stand up is a 15 minutes meeting.*
-
-*PBI: Product Backlog Item*
-
-*La sprint (o sprint backlog) dura de 2 a 4 semanas.*
-
-*Durante un sprint backlog se trabajan múltiples PBIs, cada uno de ellos, a su vez, con múltiples tareas.*
+> [!NOTE]
+>
+> *Daily Scrum or Daily stand up is a 15 minutes meeting.*
+>
+> *PBI: Product Backlog Item*
+>
+> *La sprint (o sprint backlog) dura de 2 a 4 semanas.*
+>
+> *Durante un sprint backlog se trabajan múltiples PBIs, cada uno de ellos, a su vez, con múltiples tareas.*
 
 
 
@@ -407,7 +512,7 @@ Son creadas por el BA/PO, que son los analistas de software, y las ponen en el b
 
 
 
-#### Acceptance criteria
+#### Acceptance criteria (AC)
 
 They are written in 3rd person, using 'user' and 'system' clearly.
 
@@ -431,26 +536,34 @@ Guerkin = BDD model = **Cucumber** framework
 
 When using Gherkin, we follow these principles:
 
-- **Feature:** functionality
-- **Scenario:** user objective (becomes the 'test case title')
-  - **Background:** indicates there's only a single 'given' for a group of scenarios (sintaxis to group duplicated 'Given')
+- **Feature:** `Feature:` functionality
+- **Scenario:** `Scenario:` or `Example:` user objective (becomes the 'test case title')
+  - **Background:** `Background:` indicates there's only a single 'given' for a group of scenarios (sintaxis to group duplicated 'Given')
+  - **Scenario outline:** `Scenario outline:` this keyword can be used to run the same Scenario multiple times, with different combinations of values.
 - **Conditionals:**
-  - Given (context, test pre-conditions)
-  - When (event or action, test steps)
-  - Then (expected system result)
+  - `Given` (context, test pre-conditions)
+  - `When` (event or action, test steps)
+  - `Then` (expected system result)
 - **Conditionals extensions:**
-  - And (new condition)
-  - But (opposite condition) 
+  - `And` (new condition)
+  - `But` (opposite condition) 
 
 
 
-<img src="images/im_04.png" width="650" style="float: left;">
+Example:
+
+```gherkin
+Feature: Búsqueda en Google.
+Como usuario web, quiero buscar en Google para poder responder mis dudas.
+Scenario: Búsqueda simple en Google
+	Given un navegador web en la página de Google
+	When se introduce la palabra de búsqueda "pingüino"
+	Then se muestra el resultado de "pingüino"
+	And los resultados relacionados incluyen "Pingüino emperador"
+	But los resultados relacionados no incluyen "ping pong"
+```
 
 
-
-### User stories example
-
-<img src="images/im_05.png" width="650" style="float: left;">
 
 
 
@@ -599,10 +712,12 @@ They are like mini SQL queries, to select issues.
 ### Crear un Test Case
 
 1. Entender la descripción de la US.
+
 2. Dentro de la US en Jira+XRay, desplazarse hasta abajo, en 'Test Coverage'
+
 3. Click en 'Add tests' -> 'New test'
 
-3. **Summary:** siempre comienza con la palabra 'validar' ('check') y el scenario de la US reescrito con el verbo de acción en <u>infinitivo</u>.
+4. **Summary:** siempre comienza con la palabra 'validar' ('check') y el scenario de la US reescrito con el verbo de acción en <u>infinitivo</u>.
 
    Por ejemplo:
 
@@ -610,37 +725,42 @@ They are like mini SQL queries, to select issues.
 
    Test Summary: 'Validar añadir un producto simple del PLP al Shopping-Cart exitosamente'
 
-4. **Preconditions:** las precondiciones no tienen 'expected result'.
+5. **Preconditions:** las precondiciones no tienen 'expected result'.
 
-5. **Test details:** pueden ser escritos en 'manual', en 'cucumber' o en 'scenario'.
+6. **Test details:** pueden ser escritos en 'manual', en 'cucumber' o en 'scenario'.
 
-6. Click en 'Add step'
+7. Click en 'Add step'
 
-7. **Edit Step:**
+8. **Edit Step:**
 
    ACTION: Se puede tomar del 'when' de la US, escribiéndolo en infinitivo. Por ejemplo: 'click en...'
 
    EXPECTED RESULT: Se puede tomar del 'then', escribiéndo '<u>should</u>'. Por ejemplo: 'debería aparecer...'
 
-   *Una acción puede tener múltiples 'Expected results', en forma de viñetas. Esto se puede identificar cuando hay condiciones 'And' en la US* 
+   > [!TIP]
+   >
+   > Una acción puede tener múltiples 'Expected results', en forma de viñetas. Esto se puede identificar cuando hay condiciones 'And' en la US.
 
-8. s
-
-D
-
-
-
-*PLP: Product listing page*
-
-*PDP: Product detail page*
+9. s
 
 
 
-==key==
+> [!NOTE]
+>
+> *PLP: Product listing page*
+>
+> *PDP: Product detail page*
+
+
+
+#### Ejemplo de AC y Test Casa
+
+##### AC
 
 ```gherkin
 ACCEPTANCE CRITERIA
 #ESCENARIO 1 (HAPPY PATH)
+Feature: X
 Scenario: Usuario añade un producto simple del PLP al Shopping-Cart exitosamente
 GIVEN: el usuario se sitúe en el PLP
 When hace click sobre el botón "Add To Cart" ubicado en la parte inferior de las Cartas Simples de la PLP
@@ -650,3 +770,48 @@ And luego en su lugar, aparece otro mensaje por unos segundos de que el producto
 And encima del Listado de Productos aparece un ícono de shopping-cart y un mensaje de tipo banner indicando: "View Cart Product successfully added to your cart."
 And dentro del mensaje, se visualiza un enlace en la palabra "View Cart"
 ```
+
+> [!NOTE]
+>
+> Gherkin highlighting doesn't work in Typora (even though it does on Github) if 'Feature: ' line isn't found in the code fence.
+
+##### Test Case
+
+```gherkin
+Feature: Búsqueda en Google
+Como usuario web, quiero buscar en Google para poder responder mis dudas.
+Scenario: Búsqueda simple en Google
+Given un navegador web en la página de Google
+When se introduce la palabra de búsqueda "pingüino"
+Then se muestra el resultado de "pingüino"
+And los resultados relacionados incluyen "Pingüino emperador"
+But los resultados relacionados no incluyen "ping pong"
+
+Expected Result
+Should aparecer un mensaje de loading por unos segundos: "ADDING TO CART" encima
+de la imagen del Producto Simple elegido.
+Debería aparecer otro mensaje por unos segundos de que el producto ha sido añadido
+exitosamente: "SUCCESSFULLY ADDED TO YOUR SHOPPING CART"
+• Debería aparecer un icono de shopping-cart y un mensaje de tipo banner indicando: "View
+Cart Product successfully added to your cart." encima del PLP.
+• Debería visualizarse un enlace en la palabra "View Cart"
+```
+
+
+
+
+
+```gherkin
+Feature: Búsqueda en Google
+
+Scenario Outline: eating
+  Given there are <start> cucumbers
+  When I eat <eat> cucumbers
+  Then I should have <left> cucumbers
+
+  Examples:
+    | start | eat | left |
+    |    12 |   5 |    7 |
+    |    20 |   5 |   15 |
+```
+
