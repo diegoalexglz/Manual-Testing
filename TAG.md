@@ -88,9 +88,9 @@ Software Testing Life Cicle (STLC)
 
 ### Macro-levels
 
-- Blackbox -> Vemos el código (Backend, Unit & Service levels)
+- Whitebox -> Vemos el código (Backend, Unit & Service levels) "Vemos la luz"
 - Graybox (Service level)
-- Whitebox -> No vemos el código (Frontend, Service & UI levels)
+- Blackbox -> No vemos el código (Frontend, Service & UI levels) "No vemos la luz"
 
 ### Levels (functional)
 
@@ -303,14 +303,7 @@ A final deploy is done to Prod, where product is ready to be used by final users
 
 
 
-# TAG 6.1 - GESTOR DE INCIDENCIAS: JIRA
-
-- Creación de requerimientos (features)
-- Creación y seguimiento de incidencias (issues)
-- Gestión de códigos (GITs, DEVOPS)
-- Gestión de pruebas (test management: Xray - Testing board)
-- Gestión de tareas (task management)
-- Gestión de reportes
+# TAG 6, 7 - INCIDENCIAS
 
 ### Issues
 
@@ -366,6 +359,111 @@ Es una feature específica, que puede depender de otras o ser parte complementar
 Son creadas por el BA/PO, que son los analistas de software, y las ponen en el backlog.
 
 
+
+### User stories
+
+<table style="width: 100%; text-align: center; vertical-align: middle; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th width="50%">Characteristic</th>
+            <th width="50%">Definition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Description</td>
+            <td>As [user x],<br>
+                I want [functionality],<br>
+                so that [benefit]
+            </td>
+        </tr>
+        <tr>
+            <td>Acceptance Criteria (AC)</td>
+            <td>Given [things],<br>
+                for when [an action is taken],<br>
+                then [desired outcome]
+            </td>
+        </tr>
+        <tr>
+            <td>Scope and Out Of Scope (OOS)</td>
+            <td>'Just test THIS'<br>
+                What we should focus in, to avoid reporting bugs outside of the scope.
+            </td>
+        </tr>
+        <tr>
+            <td>Business rules (BR)</td>
+            <td>Specific descriptions<br>
+                Example: behavior of a credit card for A) teenagers under 18 and B) old people
+            </td>
+        </tr>
+        <tr>
+            <td>Priority</td>
+        </tr>
+        <tr>
+            <td>Story Points (SP)</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+#### Acceptance criteria
+
+They are written in 3rd person, using 'user' and 'system' clearly.
+
+Based on our analysis of a single acceptance criteria, we will decide if to generate one or multiple test cases.
+
+##### Behavior Driven-Development (BDD)
+
+It's a model to work with requirements. It's not a technique, but more like a document format.
+
+They are used in User Stories, Coding and Tests Cases.
+
+They use the requirements language **Gherkin**.
+
+##### Guerkin
+
+It's a Reqs. Language, not a programming language.
+
+Guerkin = BDD model = **Cucumber** framework
+
+
+
+When using Gherkin, we follow these principles:
+
+- **Feature:** functionality
+- **Scenario:** user objective (becomes the 'test case title')
+  - **Background:** indicates there's only a single 'given' for a group of scenarios (sintaxis to group duplicated 'Given')
+- **Conditionals:**
+  - Given (context, test pre-conditions)
+  - When (event or action, test steps)
+  - Then (expected system result)
+- **Conditionals extensions:**
+  - And (new condition)
+  - But (opposite condition) 
+
+
+
+<img src="images/im_04.png" width="650" style="float: left;">
+
+
+
+### User stories example
+
+<img src="images/im_05.png" width="650" style="float: left;">
+
+
+
+# JIRA
+
+### Capacidades
+
+- Creación de requerimientos (features)
+- Creación y seguimiento de incidencias (issues)
+- Gestión de códigos (GITs, DEVOPS)
+- Gestión de pruebas (test management: Xray - Testing board)
+- Gestión de tareas (task management)
+- Gestión de reportes
 
 ### Xray issues
 
@@ -484,6 +582,10 @@ You're asked to select a template when creating a project, which, in turn, will 
 - Scrum
 - Bug tracking
 
+For QA, a board usually consists of:
+
+Deployed in QA -> Working on -> Work validation -> Work done -> Deployed in UAT
+
 
 
 ### Filters
@@ -492,14 +594,66 @@ They are like mini SQL queries, to select issues.
 
 
 
+# TAG 10 - TEST CASES
+
+### Crear un Test Case
+
+1. Entender la descripción de la US.
+2. Dentro de la US en Jira+XRay, desplazarse hasta abajo, en 'Test Coverage'
+3. Click en 'Add tests' -> 'New test'
+
+3. **Summary:** siempre comienza con la palabra 'validar' ('check') y el scenario de la US reescrito con el verbo de acción en <u>infinitivo</u>.
+
+   Por ejemplo:
+
+   US Scenario: 'Usuario añade un producto simple del PLP al Shopping-Cart exitosamente'
+
+   Test Summary: 'Validar añadir un producto simple del PLP al Shopping-Cart exitosamente'
+
+4. **Preconditions:** las precondiciones no tienen 'expected result'.
+
+5. **Test details:** pueden ser escritos en 'manual', en 'cucumber' o en 'scenario'.
+
+6. Click en 'Add step'
+
+7. **Edit Step:**
+
+   ACTION: Se puede tomar del 'when' de la US, escribiéndolo en infinitivo. Por ejemplo: 'click en...'
+
+   EXPECTED RESULT: Se puede tomar del 'then', escribiéndo '<u>should</u>'. Por ejemplo: 'debería aparecer...'
+
+   *Una acción puede tener múltiples 'Expected results', en forma de viñetas. Esto se puede identificar cuando hay condiciones 'And' en la US* 
+
+8. s
+
+D
 
 
 
+*PLP: Product listing page*
+
+*PDP: Product detail page*
+
+![image-20240215113235902](C:\Users\Diego\AppData\Roaming\Typora\typora-user-images\image-20240215113235902.png)
 
 
 
+```gherkin
+ACCEPTANCE CRITERIA
+#ESCENARIO 1 (HAPPY PATH)
+Scenario: Usuario añade un producto simple del PLP al Shopping-Cart exitosamente
+GIVEN el usuario se sitúe en el PLP
+When hace click sobre el botón "Add To Cart" ubicado en la parte inferior de las Cartas Simples de la PLP
+Then encima de la imagen del Producto Simple elegido, aparece un mensaje de loading por unos segundos: "ADDING TO
+CART..."
+And luego en su lugar, aparece otro mensaje por unos segundos de que el producto ha sido añadido exitosamente:
+"SUCCESSFULLY ADDED TO YOUR SHOPPING CART"
+And encima del Listado de Productos aparece un ícono de shopping-cart y un mensaje de tipo banner indicando: "View
+Cart Product successfully added to your cart."
+And dentro del mensaje, se visualiza un enlace en la palabra "View Cart
+```
 
+> [!NOTE]
+>
+> s
 
-
-
-![image-20240214090903639](C:\Users\Diego\AppData\Roaming\Typora\typora-user-images\image-20240214090903639.png)
